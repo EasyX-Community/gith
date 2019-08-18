@@ -19,7 +19,7 @@
 
 ### Usage:
 
-Go into your Git project directory. Some script usage examples are below:
+<b>Go into your Git project directory. Some script usage examples are below:</b>
 
 ##### gith-ignore adds something to the .gitignore file for you
 
