@@ -19,11 +19,6 @@ echo ""
 
 if [ -e $PWD/.git ]
 then
-
-    # Add to git ignore
-    # echo "I coufile [${PWD}/.git] to add [${1}] to!"; 
-#    if [ -e ${PWD}/${1} ]
-#    then
     
         # Add to git commit
         git add *
@@ -33,13 +28,6 @@ then
         echo "";
         echo "";
         echo "I successfully added [${PWD}/${1}] to the commit!"; 
-        
-#    else
-#    
-#        # Add to git ignore
-#        echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
-#     
-#    fi
     
 else
 
@@ -47,8 +35,6 @@ else
     echo "This location is not a git repo!"; 
  
 fi
-
-
 
 
 echo ""
