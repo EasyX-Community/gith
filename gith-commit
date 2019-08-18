@@ -28,7 +28,7 @@ then
         git push
         echo "";
         echo "";
-        echo "I successfully added [${PWD}/${1}] to the commit!"; 
+        echo "I've successfully updated the commit with message [${1}]!"; 
     
 else
 
