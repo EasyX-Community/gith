@@ -1,0 +1,58 @@
+#!/bin/bash
+
+echo ""
+echo "EasyNOMP Committing all changes/files to Git..."
+echo ""
+
+source ~/.bashrc
+source /etc/os-release
+
+## who am i? ##
+SCRIPTNAME="$(readlink -f ${BASH_SOURCE[0]})"
+BASEDIR="$(dirname $SCRIPTNAME)"
+
+## Okay, print it ##
+echo "Script name : $SCRIPTNAME"
+echo "Current working dir : $PWD"
+echo "Script location path (dir) : $BASEDIR"
+echo ""
+
+if [ -e $PWD/.git ]
+then
+
+    # Add to git ignore
+    # echo "I coufile [${PWD}/.git] to add [${1}] to!"; 
+#    if [ -e ${PWD}/${1} ]
+#    then
+    
+        # Add to git commit
+        git add *
+        git commit -am "${1}"
+        echo "";
+        git push
+        echo "";
+        echo "";
+        echo "I successfully added [${PWD}/${1}] to the commit!"; 
+        
+#    else
+#    
+#        # Add to git ignore
+#        echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
+#     
+#    fi
+    
+else
+
+    # Add to git ignore
+    echo "This location is not a git repo!"; 
+ 
+fi
+
+
+
+
+echo ""
+echo "Done!"
+echo ""
+
+exit 0
