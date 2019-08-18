@@ -2,6 +2,14 @@
 
 ------
 
+### Installation & Update:
+
+1) cd /path/to/gith/
+2) git pull
+3) sudo cp ./* /bin
+
+------
+
 ### Go into your Git project directory. Some script usage examples are below:
 
 ##### gith-ignore adds something to the .gitignore file for you
