@@ -10,20 +10,20 @@ source /etc/os-release
 ## who am i? ##
 SCRIPTNAME="$(readlink -f ${BASH_SOURCE[0]})"
 BASEDIR="$(dirname $SCRIPTNAME)"
+GITPRJDIR=$(git rev-parse --show-toplevel)
+RELIN=$(realpath --relative-to="${GITPRJDIR}" "${1}")
 
 ## Okay, print it ##
 echo "Script name : $SCRIPTNAME"
 echo "Current working dir : $PWD"
 echo "Script location path (dir) : $BASEDIR"
+echo "Git repo location path (dir) : $GITPRJDIR"
+echo "INPUT: ${RELIN}"
 echo ""
 
-PWD=${pwd}
-TMPDIR=$(git rev-parse --show-toplevel)
-
-if [ ! -z $TMPDIR ]
-then
+if [ ! -z $GITPRJDIR ]; then
     
-        cd ${TMPDIR};    
+        cd ${GITPRJDIR};    
         
         # Add to git commit
         git commit -am "${1}"
@@ -33,7 +33,7 @@ then
         echo "";
         echo "I've successfully pushed the commit with message [${1}]!"; 
         
-        cd ${pwd}; 
+        cd ${PWD}; 
     
 else
 

@@ -10,37 +10,57 @@ source /etc/os-release
 ## who am i? ##
 SCRIPTNAME="$(readlink -f ${BASH_SOURCE[0]})"
 BASEDIR="$(dirname $SCRIPTNAME)"
+GITPRJDIR=$(git rev-parse --show-toplevel)
+RELIN=$(realpath --relative-to="${GITPRJDIR}" "${1}")
 
 ## Okay, print it ##
 echo "Script name : $SCRIPTNAME"
 echo "Current working dir : $PWD"
 echo "Script location path (dir) : $BASEDIR"
+echo "Git repo location path (dir) : $GITPRJDIR"
+echo "INPUT: ${RELIN}"
 echo ""
 
-
-if [ -e $PWD/.git ]
-then
+if [ ! -z $GITPRJDIR ]; then
 
     # Add to git ignore
     # echo "I coufile [${PWD}/.git] to add [${1}] to!"; 
-    if [ -e $PWD/.gitignore ]
-    then
+    if [ -e ${GITPRJDIR}/.gitignore ]; then
     
-        # Add to git ignore
-        echo "$1" | tee -a $PWD/.gitignore > /dev/null
-        echo "I successfully added [${1}] to the file [${PWD}/.gitignore]!"; 
+        if [ "${PWD}" != "$GITPRJDIR" ]; then
+        
+            # Add to git ignore
+            echo "${RELIN}" | tee -a ${GITPRJDIR}/.gitignore > /dev/null
+            echo "I successfully added [${RELIN}] to the file [${GITPRJDIR}/.gitignore]!"; 
+        
+        else        
+        
+            # Add to git ignore
+            echo "${1}" | tee -a ${GITPRJDIR}/.gitignore > /dev/null
+            echo "I successfully added [${1}] to the file [${GITPRJDIR}/.gitignore]!"; 
+        
+        fi    
         
     else
     
-        # Add to git ignore
-        echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
+        if [ "${PWD}" != "$GITPRJDIR" ]; then
+        
+            # Add to git ignore
+            echo "I couldn't find the file [${GITPRJDIR}/.gitignore] to add [${RELIN}] to!"; 
+        
+        else        
+        
+            # Add to git ignore
+            echo "I couldn't find the file [${GITPRJDIR}/.gitignore] to add [${1}] to!"; 
+        
+        fi 
      
     fi
     
 else
 
     # Add to git ignore
-    echo "This location [${PWD}] is not a git repo!"; 
+    echo "This location [${PWD}] is not inside of a git repo!"; 
  
 fi
 
