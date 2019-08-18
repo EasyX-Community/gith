@@ -17,20 +17,32 @@ echo "Current working dir : $PWD"
 echo "Script location path (dir) : $BASEDIR"
 echo ""
 
-if [ -e $PWD/.gitignore ]
+
+if [ -e $PWD/.git ]
 then
 
     # Add to git ignore
-    echo "$1" | tee -a $PWD/.gitignore
+    # echo "I coufile [${PWD}/.git] to add [${1}] to!"; 
+    if [ -e $PWD/.gitignore ]
+    then
+    
+        # Add to git ignore
+        echo "$1" | tee -a $PWD/.gitignore > /dev/null
+        echo "I successfully added [${1}] to the file [${PWD}/.gitignore]!"; 
+        
+    else
+    
+        # Add to git ignore
+        echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
+     
+    fi
     
 else
 
     # Add to git ignore
-    echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
+    echo "This location [${PWD}] is not a git repo!"; 
  
 fi
-
-
 
 
 echo ""
