@@ -21,13 +21,9 @@ echo "Git repo location path (dir) : $GITPRJDIR"
 echo "INPUT: ${RELIN}"
 echo ""
 
-PWD=${pwd}
-TMPDIR=$(git rev-parse --show-toplevel)
-
-if [ ! -z $TMPDIR ]
-then
+if [ ! -z $GITPRJDIR ]; then
     
-        cd ${TMPDIR};    
+        cd ${GITPRJDIR};    
     
         # Add to git commit
         git add *
