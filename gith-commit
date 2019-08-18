@@ -17,11 +17,12 @@ echo "Current working dir : $PWD"
 echo "Script location path (dir) : $BASEDIR"
 echo ""
 
-if [ -e $PWD/.git ]
+TMPDIR=$(git rev-parse --show-toplevel)
+
+if [ ! -z $TMPDIR ]
 then
     
         # Add to git commit
-#        git add *
         git commit -am "${1}"
         echo "";
         git push

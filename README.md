@@ -42,8 +42,4 @@
 1) gith-commit "initial commit"
 2) gith-commit "readme.md updated"
 
-
-
-
-
-
+------
