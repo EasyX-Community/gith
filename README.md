@@ -44,3 +44,14 @@
 3) gith-push-all "added file.dat"
 
 ------
+
+### Contributing:
+
+1) Fork the project
+2) Git your fork of the project
+3) Make some changes to the helper scripts
+4) Push it to your repository
+5) Submit a Pull Request to the main repository
+6) Get your name listed on a crappy but useful project :P
+
+------
