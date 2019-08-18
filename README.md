@@ -1,4 +1,4 @@
-# How to use Git Helper
+# How to use Git Helper v1.01
 
 ------
 
