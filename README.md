@@ -30,16 +30,17 @@
 
 ------
 
-##### gith-commit will auto commit and push your changes with message (you must enter password or cache it)
+##### gith-push will auto commit and push your changes with message (you must enter password or cache it)
 
-1) gith-commit "initial commit"
-2) gith-commit "readme.md updated"
+1) gith-push "initial commit"
+2) gith-push "readme.md updated"
 
 ------
 
-##### gith-commit-all will add all files, auto commit and push your changes with message (you must enter password or cache it)
+##### gith-push-all will add all files, auto commit and push your changes with message (you must enter password or cache it)
 
-1) gith-commit "initial commit"
-2) gith-commit "readme.md updated"
+1) gith-push-all "initial commit"
+2) gith-push-all "readme.md updated"
+3) gith-push-all "added file.dat"
 
 ------
