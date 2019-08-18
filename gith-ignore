@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo ""
+echo "EasyNOMP Adding to GitIgnore..."
+echo ""
+
+source ~/.bashrc
+source /etc/os-release
+
+## who am i? ##
+SCRIPTNAME="$(readlink -f ${BASH_SOURCE[0]})"
+BASEDIR="$(dirname $SCRIPTNAME)"
+
+## Okay, print it ##
+echo "Script name : $SCRIPTNAME"
+echo "Current working dir : $PWD"
+echo "Script location path (dir) : $BASEDIR"
+echo ""
+
+if [ -e $PWD/.gitignore ]
+then
+
+    # Add to git ignore
+    echo "$1" | tee -a $PWD/.gitignore
+    
+else
+
+    # Add to git ignore
+    echo "I couldn't find the file [${PWD}/.gitignore] to add [${1}] to!"; 
+ 
+fi
+
+
+
+
+echo ""
+echo "Done!"
+echo ""
+
+exit 0
