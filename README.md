@@ -17,7 +17,9 @@
 
 ------
 
-### Go into your Git project directory. Some script usage examples are below:
+### Usage:
+
+Go into your Git project directory. Some script usage examples are below:
 
 ##### gith-ignore adds something to the .gitignore file for you
 
