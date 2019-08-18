@@ -2,11 +2,18 @@
 
 ------
 
-### Installation & Update:
+### Installation:
 
-1) cd /path/to/gith/
+1) git clone https://github.com/EasyX-Community/gith.git
+2) sudo cp ./gith-* /bin
+
+------
+
+### Update:
+
+1) cd /path/to/gith
 2) git pull
-3) sudo cp ./* /bin
+3) sudo cp ./gith-* /bin
 
 ------
 
